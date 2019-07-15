@@ -1,0 +1,22 @@
+'''
+Here in this tutorial, we will create a very simple Python application that can be really useful in various business cases.
+It will be a simple application, because user can use it through the command prompt window. If you are not looking for fancy GUIs,
+you can construct your easy-peasy Python application right away and it can make your life a lot easier. You can give up preparing 
+the same analysis over and over again, with different input parameters and save a great deal of your efforts in the long run.
+
+I will rely on a single example throughout the tutorial and before diving deeper into it, I would like to talk about a business scenario
+where we need a simple currency exchange rate analysis to get things going with our daily operations at work.
+
+Suppose, I am interested in getting an idea of where €/$ exchange rate can move in some future and I would like to simulate it daily using
+Geometric Brownian Motion(GBM). At the end, I can calculate my risk due to currency movements. So, what I need to do is the following.
+
+1. Decide how far to go back in the past and get €/$ rate to calculate daily volatility to be used in GBM algorithm,
+2. Decide how far into the future our simulations should go,
+3. Decide how many different future scenarios we would like to have,
+4. (optional) If I want to try different scenarios based on some daily volatility assumptions other than the historical one,
+	I should be able to enter a daily volatility value manually
+	
+
+	
+
+
