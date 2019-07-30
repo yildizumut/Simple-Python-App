@@ -48,9 +48,9 @@ Now, we need to create an empty folder to host our virtual environment. For this
 Open a command prompt window and type: 
 python -m venv path_to_python_environment
 You can find the documentation on https://docs.python.org/3/library/venv.html
-![venv_cmd.PNG](attachment:venv_cmd.PNG)
+![venv_cmd.PNG](venv_cmd.PNG)
 Then, we have a clean virtual environment. Next task is to install required packages.
-![venv_folder.PNG](attachment:venv_folder.PNG)
+![venv_folder.PNG](venv_folder.PNG)
 
 ## 2. Installing packages to the virtual environment
 
