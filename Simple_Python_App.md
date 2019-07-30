@@ -22,19 +22,21 @@ In order to make this a stand-alone desktop application, first, we need to creat
 Below, you can see the steps we will follow in the tutorial.
 
 # Steps
+
 1. Creating virtual python environment
 2. Installing packages to the virtual environment
-3. Writing the script
-    3.1. Setting Desktop folder as the working directory
-    3.2. Getting input from the user
-    3.3. Retrieving exchange rate data from Quandl
-    3.4. GBM Algorithm
-    3.5. Plotting the simulated rates and creating .png
-    3.6. Writing the scenarios into .xlsx using xlsxwriter
-    3.7. Collecting the output files into a folder
-    3.8. Re-initiating the program
-4. Creating a shortcut on Desktop for the app
-5. Example run
+3. Creating the script
+4. Setting Desktop folder as the working directory
+5. Getting input from the user
+6. Retrieving exchange rate data from Quandl
+7. GBM Algorithm
+8. Plotting the simulated rates and creating .png
+9. Writing the scenarios into .xlsx using xlsxwriter
+10. Collecting the output files into a folder
+11. Re-initiating the program
+12. Creating a shortcut on Desktop for the app
+13. Example run
+
 ## 1. Creating virtual python environment
 
 Before creating the virtual environment, you have to make sure that you have a working Python installation and it is in the Path. You can download it from https://www.python.org/downloads/ and during the installation you can add python to the Path variable by checking the appropriate box on the installation screen when it appears. If you have a python installation, but it is not in the path, you can add it by:
@@ -45,12 +47,16 @@ Before creating the virtual environment, you have to make sure that you have a w
 Then, python gets in the Path and we are ready to create a virtual environment.
 
 Now, we need to create an empty folder to host our virtual environment. For this tutorial, I create a folder named PythonVEnvs on the desktop and inside it, I create another folder named Python_VEnv_FXsimulator (You can create it anywhere on your computer as long as you have access permission). We can create the virtual environment that is specific to our application, inside Python_VEnv_FXsimulator. For other projects, we can just create other folders and dump virtual environments into them. 
-Open a command prompt window and type: 
-python -m venv path_to_python_environment
+
+Open a command prompt window and type:  
+python -m venv path_to_python_environment  
 You can find the documentation on https://docs.python.org/3/library/venv.html
-![venv_cmd.PNG](venv_cmd.PNG)
-Then, we have a clean virtual environment. Next task is to install required packages.
-![venv_folder.PNG](venv_folder.PNG)
+
+![venv_cmd.PNG](venv_cmd.PNG)  
+
+Then, we have a clean virtual environment. Next task is to install required packages.  
+
+![venv_folder.PNG](venv_folder.PNG)  
 
 ## 2. Installing packages to the virtual environment
 
