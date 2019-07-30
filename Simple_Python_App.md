@@ -42,11 +42,13 @@ Below, you can see the steps we will follow in the tutorial.
 Before creating the virtual environment, you have to make sure that you have a working Python installation and it is in the Path. You can download it from https://www.python.org/downloads/ and during the installation you can add python to the Path variable by checking the appropriate box on the installation screen when it appears. If you have a python installation, but it is not in the path, you can add it by:
 - Control Panel -> System and Security -> System -> Advanced System Settings -> Environment Variables (under Advanced tab) -> Select Path variable under System variables box -> Click Edit -> To the Variable value box, you need to copy and paste two directories:
 1. C:\Python37-64 -> You can edit this with where your Python is installed
-2. C:\Python37-64\Scripts
+2. C:\Python37-64\Scripts  
+
+![path_var.PNG](path_var.PNG)  
 
 Then, python gets in the Path and we are ready to create a virtual environment.
 
-Now, we need to create an empty folder to host our virtual environment. For this tutorial, I create a folder named PythonVEnvs on the desktop and inside it, I create another folder named Python_VEnv_FXsimulator (You can create it anywhere on your computer as long as you have access permission). We can create the virtual environment that is specific to our application, inside Python_VEnv_FXsimulator. For other projects, we can just create other folders and dump virtual environments into them. 
+Now, we need to create an empty folder to host our virtual environment. For this tutorial, I create a folder named PythonVEnvs on the desktop and inside it, I create another folder named Python_VEnv_FXsimulator (You can create it anywhere on your computer as long as you have access permission). We can create the virtual environment that is specific to our application, inside Python_VEnv_FXsimulator. For other projects, we can just create other folders and dump virtual environments into them.  
 
 Open a command prompt window and type:  
 python -m venv path_to_python_environment  
