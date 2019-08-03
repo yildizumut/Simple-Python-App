@@ -63,12 +63,12 @@ while True:
         elif implied_volatility == 'omit':
             implied_volatility_check = False
             break
-        elif type(float(scen_size)) is float:
+        elif type(implied_volatility) is float:
             implied_volatility_check = True
             implied_volatility = float(implied_volatility)
             break
     except ValueError:
-        print("\nENTER A VALIED IMPLIED VOLATILITY !\n")
+        print("\nENTER A VALID IMPLIED VOLATILITY !\n")
         
 # Input Parameters
 hist_start = pd.to_datetime(hist_1, format = "%Y-%m-%d")
