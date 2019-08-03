@@ -15,7 +15,7 @@ import xlsxwriter
 import datetime as dt
 
 # Change working directory to the related folder
-drctry = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+drctry = os.path.join(os.environ['USERPROFILE'], 'Desktop')
 os.chdir(drctry)
 
 output_files = []
