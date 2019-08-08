@@ -127,6 +127,7 @@ print("\n-> GBM is progressing !")
 # GBM Algorithm
 drift = (mu - 0.5 * sigma**2) * t
 diffusion = {str(scen): sigma * W[str(scen)] for scen in range(1, scen_size + 1)}
+#print("drift:", drift, "diffusion:", diffusion)
 S = np.array([So * np.exp(drift + diffusion[str(scen)]) for scen in range(1, scen_size + 1)]) 
 S = np.hstack((np.array([[So] for scen in range(scen_size)]), S))
 
@@ -178,14 +179,14 @@ for carry in output_files:
 
 print("\n\no-o-o-o-o-o-o-o-o-o-o-o CODE RUN COMPLETED o-o-o-o-o-o-o-o-o-o-o-o")
 
-pydir = os.path.dirname(os.path.realpath(__file__))
-print(pydir)
-
-while True:
-    run_again = input("\nDo you want to run the program again ? (yes / no): ")
-    if run_again == "yes":
-        os.system(pydir + '\\Scripts\\python.exe ' + pydir + '\\FXSimulator.py')
-        break
-    elif run_again == "no":
-        break
+#pydir = os.path.dirname(os.path.realpath(__file__))
+#print(pydir)
+#
+#while True:
+#    run_again = input("\nDo you want to run the program again ? (yes / no): ")
+#    if run_again == "yes":
+#        os.system(pydir + '\\Scripts\\python.exe ' + pydir + '\\FXSimulator.py')
+#        break
+#    elif run_again == "no":
+#        break
     
