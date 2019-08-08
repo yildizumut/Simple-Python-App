@@ -95,7 +95,8 @@ full_range = full_range[full_range != 0].reset_index(drop = True)
 eur_try = quandl.get("ECB/EURTRY", authtoken="py3UYy43X9dTYJb7X6es", start_date = hist_start.strftime("%Y-%m-%d"))
 eur_usd = quandl.get("ECB/EURUSD", authtoken="py3UYy43X9dTYJb7X6es", start_date = hist_start.strftime("%Y-%m-%d"))
 
-USDdata = (eur_try * (1 / eur_usd)).reset_index()
+#USDdata = (eur_try * (1 / eur_usd)).reset_index()
+USDdata = (1 / eur_usd).reset_index()
 USDdata.columns = ['Date', 'USD']
 
 USDdata["Date"] = pd.to_datetime(USDdata["Date"], format = "%Y-%m-%d")
@@ -127,7 +128,7 @@ def Brownian(seed, N):
     W = np.cumsum(b)                                        # brownian path
     return W, b
 
-def GBM(So, mu, sigma, W, T, N):    
+def GBM(So, mu, sigma, W, N):    
     t = np.linspace(0.,1.,N+1)
     S = []
     S.append(So)
@@ -147,6 +148,34 @@ def daily_return(x):
         returns.append(daily_return)
     return returns
 
+#def Brownian(seed, N):
+#    #np.random.seed(seed)                         
+#    dtime = N/N                                            # time step
+#    b = np.random.normal(0., 1., int(N))*np.sqrt(dtime)     # brownian increments
+#    W = np.cumsum(b)                                        # brownian path
+#    return W, b
+#
+#def GBM(So, mu, sigma, W, N):    
+#    t = np.linspace(0,N+1)
+#    S = []
+#    S.append(So)
+#    for i in range(1,int(N+1)):
+#        drift = (mu - 0.5 * sigma**2) * t[i]
+#        diffusion = sigma * W[i-1]
+#        S_temp = So*np.exp(drift + diffusion)
+#        S.append(S_temp)
+#    return S, t
+#
+#def daily_return(x):
+#    returns = []
+#    for i in range(0, len(x)-1):
+#        today = x[i+1]
+#        yesterday = x[i]
+#        daily_return = (today - yesterday)/yesterday
+#        returns.append(daily_return)
+#    return returns
+
+
 print("\n\no-o-o-o-o-o-o-o-o-o-o-o PROGRAM INITIATED o-o-o-o-o-o-o-o-o-o-o-o\n")
 
 returns = daily_return(USDdata["USD"])
@@ -163,8 +192,17 @@ if implied_volatility_check:
 else:
     sigma = np.std(returns) * np.sqrt(N)
     print("\nCalculated Daily Volatility: ", np.std(returns))
-    
-T = 1
+
+#mu = np.mean(returns)
+#
+#if implied_volatility_check:
+#    sigma = implied_volatility
+#    print("\nImplied Daily Volatility: ", implied_volatility)
+#else:
+#    sigma = np.std(returns)
+#    print("\nCalculated Daily Volatility: ", np.std(returns))   
+
+#T = 1
 
 seed = 5  
 
@@ -178,11 +216,12 @@ plt.figure(figsize = (20,10))
 for i in range(scenario_no):
     W = Brownian(seed, N)[0]
     
-    soln = GBM(So, mu, sigma, W, T, N)[0]    # Exact solution
-    t = GBM(So, mu, sigma, W, T, N)[1]       # time increments for  plotting
+    soln = GBM(So, mu, sigma, W, N)[0]    # Exact solution
+    t = GBM(So, mu, sigma, W, N)[1]       # time increments for  plotting
     
     gbm_scens[i] = soln
     plt.title("Daily Volatility: " + str(sigma / np.sqrt(N)))
+#    plt.title("Daily Volatility: " + str(sigma))
     plt.plot(np.arange(1, N + 2), soln)
     plt.ylabel('USD Rate, (₺/$)')
 
