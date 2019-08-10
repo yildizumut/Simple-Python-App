@@ -117,10 +117,10 @@ So = USDdata["USD"].values[USDdata.shape[0]-1]
 dt = 1
 T = pd.Series(pd.date_range(start, end)).map(lambda x: 1 if x.isoweekday() in range(1,6) else 0).sum()
 N = T / dt
-t = np.arange(dt, T + dt, dt)
-mu = np.mean(returns) * (1 / dt)
-sigma = [implied_volatility * np.sqrt(1 / dt) if implied_volatility_check else np.std(returns) * np.sqrt(1 / dt)][0]
-b = {str(scen): np.random.normal(0, 1, int(N)) * np.sqrt(dt) for scen in range(1, scen_size + 1)}
+t = np.arange(1, int(N) + 1)
+mu = np.mean(returns)
+sigma = [implied_volatility if implied_volatility_check else np.std(returns)][0]
+b = {str(scen): np.random.normal(0, 1, int(N)) for scen in range(1, scen_size + 1)}
 W = {str(scen): b[str(scen)].cumsum() for scen in range(1, scen_size + 1)}
 
 print("\n-> GBM is progressing !")
