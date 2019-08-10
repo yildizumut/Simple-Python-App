@@ -188,12 +188,13 @@ for carry in output_files:
 print("\n\no-o-o-o-o-o-o-o-o-o-o-o CODE RUN COMPLETED o-o-o-o-o-o-o-o-o-o-o-o")
 
 pydir = os.path.dirname(os.path.realpath(__file__))
-print(pydir)
+cmd_run = '"' + pydir + '\\Scripts\\python.exe" ' + '"' + pydir + '\\FX_Simulator.py"'
+print(cmd_run)
 
 while True:
     run_again = input("\nDo you want to run the program again ? (yes / no): ")
     if run_again == "yes":
-        os.system(pydir + '\\Scripts\\python.exe ' + pydir + '\\FXSimulator.py')
+        os.system(cmd_run)
         break
     elif run_again == "no":
         break

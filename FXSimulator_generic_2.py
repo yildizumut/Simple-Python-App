@@ -87,7 +87,6 @@ end = pd.to_datetime(fwd_2, format = "%Y-%m-%d")
 
 eur_usd = quandl.get("ECB/EURUSD", authtoken="py3UYy43X9dTYJb7X6es", start_date = hist_start.strftime("%Y-%m-%d"))
 
-#USDdata = (eur_try * (1 / eur_usd)).reset_index()
 USDdata = (1 / eur_usd).reset_index()
 USDdata.columns = ['Date', 'USD']
 
@@ -104,9 +103,9 @@ print("\n\no-o-o-o-o-o-o-o-o-o-o-o PROGRAM INITIATED o-o-o-o-o-o-o-o-o-o-o-o\n")
 # Parameter Definitions
 # So    :   initial exchange rate (yesterday's exchange rate)
 # dt    :   time increment -> a day in our case
-# T     :   end of the time horizon
-# N     :   number of periods in the time horizon -> T/dt
-# t     :   array for time increments [dtime, dtime*2, dtime*3, .. , dtime*N]
+# T     :   length of the prediction time horizon(how many time points to predict, same unit with dt(days))
+# N     :   number of time points in the prediction time horizon -> T/dt
+# t     :   array for time points in the prediction time horizon [1, 2, 3, .. , N]
 # mu    :   mean of historical daily returns
 # sigma :   standard deviation of historical daily returns
 # W     :   array for brownian path
