@@ -558,7 +558,7 @@ The application is almost complete at this point. Now, we have a Virtual Python 
 
 ## 4. Creating a shortcut on Desktop for the app
 
-Remember that we are creating this simple Python app for all the users in a server. If you have administrator privigeles, you can create a Desktop shortcut for the use of all users. If you don't have it, you may need IT support, or you can easily create shortcuts on Desktops of the users individually by following the steps below.   
+Remember that we are creating this simple Python app for all the users in a server. If you have administrator privileges, you can create a Desktop shortcut for the use of all users. If you don't have it, you may need IT support, or you can easily create shortcuts on Desktops of the users individually by following the steps below.   
 
 To create a shortcut on the Desktop:  
 
